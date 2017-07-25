@@ -1,6 +1,7 @@
 name: CustomMotd
 author: Marvin2k0
 version: 2017.07.25
+main: de.marvin2k0.custommotd.Main
 commands:
     motd:
         description:
