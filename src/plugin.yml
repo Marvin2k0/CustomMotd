@@ -1,0 +1,6 @@
+name: CustomMotd
+author: Marvin2k0
+version: 2017.07.25
+commands:
+    motd:
+        description:
