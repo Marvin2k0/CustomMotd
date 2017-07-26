@@ -98,7 +98,14 @@ public class Main extends JavaPlugin
 
             public void run()
             {
+                if (getMotdList().isEmpty())
+                    return;
+
                 setMotd(getMotdList().get(i));
+                reloadConfig();
+
+                if (i == getMotdList().size())
+                    i = 0;
             }
         }, 0, getConfig().getInt("interval") * 20);
     }
