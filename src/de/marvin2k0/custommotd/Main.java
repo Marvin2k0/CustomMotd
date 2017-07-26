@@ -37,7 +37,7 @@ public class Main extends JavaPlugin
         getConfig().addDefault("wrong-usage", "&7Wrong usage. Use &c/motd set <motd>");
         getConfig().addDefault("motd-set", "&7Motd has been set.");
         getConfig().addDefault("no-permission", "&7You don't have the &cpermission &7to use this command.");
-        saveDefaultConfig();
+        saveConfig();
     }
 
     public static Main getInstance()
@@ -55,7 +55,6 @@ public class Main extends JavaPlugin
     {
         getConfig().set("motd", motd);
         saveConfig();
-        reloadConfig();
     }
 
     public String getMotd()
