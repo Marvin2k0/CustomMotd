@@ -22,7 +22,7 @@ public class MotdCommand implements CommandExecutor
 
             String msg = "";
 
-            for (int i = 2; i < args.length; i++)
+            for (int i = 1; i < args.length; i++)
             {
                 msg += args[i] + " ";
             }

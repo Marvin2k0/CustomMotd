@@ -32,11 +32,12 @@ public class Main extends JavaPlugin
     private void loadConfig()
     {
         getConfig().options().copyDefaults(true);
+        getConfig().addDefault("motd", "&cDefault motd, please change &7-> &9/motd set <motd>");
         getConfig().addDefault("prefix", "&7[&9" + getDescription().getName() + "&7] ");
         getConfig().addDefault("wrong-usage", "&7Wrong usage. Use &c/motd set <motd>");
-        getConfig().addDefault("motd-set", "&7Motd &9" + getMotd() + " &7has been set.");
+        getConfig().addDefault("motd-set", "&7Motd has been set.");
         getConfig().addDefault("no-permission", "&7You don't have the &cpermission &7to use this command.");
-        saveConfig();
+        saveDefaultConfig();
     }
 
     public static Main getInstance()
@@ -53,6 +54,8 @@ public class Main extends JavaPlugin
     public void setMotd(String motd)
     {
         getConfig().set("motd", motd);
+        saveConfig();
+        reloadConfig();
     }
 
     public String getMotd()
