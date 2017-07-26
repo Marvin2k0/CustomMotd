@@ -105,6 +105,8 @@ public class Main extends JavaPlugin
                 setMotd(getMotdList().get(i));
                 reloadConfig();
 
+                i++;
+
                 if (i == getMotdList().size())
                     i = 0;
             }
