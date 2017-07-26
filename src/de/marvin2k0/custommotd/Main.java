@@ -59,6 +59,6 @@ public class Main extends JavaPlugin
 
     public String getMotd()
     {
-        return ChatColor.translateAlternateColorCodes('&', getConfig().getString("motd"));
+        return ChatColor.translateAlternateColorCodes('&', "&7" + getConfig().getString("motd"));
     }
 }
