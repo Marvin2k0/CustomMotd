@@ -88,6 +88,7 @@ public class Main extends JavaPlugin
         motdList.add(motd);
         getConfig().set("motd-list", motdList);
         saveConfig();
+        reloadConfig();
     }
 
     public void changeMotd()
