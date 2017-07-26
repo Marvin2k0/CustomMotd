@@ -13,22 +13,54 @@ public class MotdCommand implements CommandExecutor
     {
         if (args.length >= 2)
         {
-            if (sender instanceof Player && !((Player) sender).hasPermission("custummotd.set"))
+            if (args[0].equalsIgnoreCase("set"))
             {
-                sender.sendMessage(Main.getInstance().getMessage("no-permission"));
+                if (sender instanceof Player && !((Player) sender).hasPermission("custummotd.cmd"))
+                {
+                    sender.sendMessage(Main.getInstance().getMessage("no-permission"));
 
-                return true;
+                    return true;
+                }
+
+                String msg = "";
+
+                for (int i = 1; i < args.length; i++)
+                {
+                    msg += args[i] + " ";
+                }
+
+                Main.getInstance().setMotd(msg);
+                sender.sendMessage(Main.getInstance().getMessage("motd-set"));
             }
-
-            String msg = "";
-
-            for (int i = 1; i < args.length; i++)
+            else if(args[0].equalsIgnoreCase("add"))
             {
-                msg += args[i] + " ";
-            }
+                String msg = "";
 
-            Main.getInstance().setMotd(msg);
-            sender.sendMessage(Main.getInstance().getMessage("motd-set"));
+                for (int i = 1; i < args.length; i++)
+                {
+                    msg += args[i] + " ";
+                }
+
+                Main.getInstance().addMotd(msg);
+                sender.sendMessage(Main.getInstance().getMessage("motd-added"));
+            }
+            else if (args[0].equalsIgnoreCase("interval"))
+            {
+                try
+                {
+                    int interval = Integer.parseInt(args[1]);
+
+
+                }
+                catch (Exception ex)
+                {
+                    sender.sendMessage(Main.getInstance().getMessage("error-number"));
+                }
+            }
+            else
+            {
+                sender.sendMessage(Main.getInstance().getMessage("cmd-not-found"));
+            }
 
             return true;
         }

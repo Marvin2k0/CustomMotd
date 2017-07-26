@@ -5,3 +5,4 @@ main: de.marvin2k0.custommotd.Main
 commands:
     motd:
         description:
+        permission: custommotd.cmd
